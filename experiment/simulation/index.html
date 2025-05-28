@@ -1,13 +1,80 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<html lang="en">
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Virtual Lab - Simulink Experiment: Linearity Test</title>
+
+	<!-- Add CSS at the head of HTML file -->
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+	<!-- Your code goes here-->
+	<header>
+		<h1>Virtual Lab: Linearity & Non-linearity Test</h1>
+		<p>Interactively explore system responses and test linearity of a system.</p>
+	</header>
+	<main>
+		<section>
+			<h2>Input Signal Parameters</h2>
+			<div class="control-group">
+				<label for="input-amplitude">Amplitude (A):</label>
+				<input type="number" id="input-amplitude" value="1" step="0.1" min="0" />
+			</div>
+			<div class="control-group">
+				<label for="input-frequency">Frequency (Hz):</label>
+				<input type="number" id="input-frequency" value="1" step="0.1" min="0.1" />
+			</div>
+			<div class="control-group">
+				<label for="input-phase">Phase (degrees):</label>
+				<input type="number" id="input-phase" value="0" step="1" min="0" max="360" />
+			</div>
+		</section>
+
+		<section>
+			<h2>System Parameters & Type</h2>
+			<div class="control-group">
+				<label for="sys-gain">Gain (k):</label>
+				<input type="number" id="sys-gain" value="1" step="0.1" />
+			</div>
+			<div class="control-group">
+				<label for="sys-offset">Offset (b):</label>
+				<input type="number" id="sys-offset" value="0" step="0.1" />
+			</div>
+			<div class="control-group">
+				<label for="non-linearity">Non-linearity:</label>
+				<select id="non-linearity">
+					<option value="linear" selected>Linear (y = kx + b)</option>
+					<option value="quadratic">Quadratic (y = kx² + b)</option>
+					<option value="saturation">Saturation (clip output)</option>
+					<option value="logarithmic">Logarithmic (y = k * log(x+1) + b)</option>
+				</select>
+			</div>
+		</section>
+
+		<section>
+			<h2>Experiment Control</h2>
+			<button id="btn-run-test">Run Linearity Test</button>
+			<button id="btn-reset">Reset</button>
+		</section>
+
+		<section>
+			<h2>Output Plot</h2>
+			<div id="plot-container">
+				<canvas id="inputPlot"></canvas>
+			</div>
+			<div id="result"></div>
+		</section>
+	</main>
+	<footer>
+		&copy; 2025 Virtual Lab - Cool Interactive Experiments
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!-- Add JS at the bottom of HTML file -->
+	<script src="./js/main.js"></script>
+
 </body>
+
 </html>
