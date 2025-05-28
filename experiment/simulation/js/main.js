@@ -269,5 +269,14 @@ function reset() {
 document.getElementById('btn-run-test').addEventListener('click', runTest);
 document.getElementById('btn-reset').addEventListener('click', reset);
 
+
 // Initialize empty plot
 reset();
+// Download Button Functionality for the main chart
+document.getElementById('downloadBtn').addEventListener('click', function () {
+  const canvas = document.getElementById('inputPlot');
+  const link = document.createElement('a');
+  link.download = 'system-response-graph.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+});

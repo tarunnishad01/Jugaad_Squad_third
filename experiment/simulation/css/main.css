@@ -119,3 +119,14 @@ footer {
         flex-direction: column;
     }
 }
+.download{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+#downloadBtn{
+    border-radius: 50px;
+}
+.download :hover{
+    background-color: #0345d3;
+}
