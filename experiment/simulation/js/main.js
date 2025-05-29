@@ -287,20 +287,20 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
     link.click();
 });
 
-window.addEventListener('load', function () {
-    const popup = document.getElementById('intro-popup');
-    const closeBtn = document.getElementById('popup-close');
-    const startBtn = document.getElementById('start-experiment');
+// window.addEventListener('load', function () {
+//     const popup = document.getElementById('intro-popup');
+//     const closeBtn = document.getElementById('popup-close');
+//     const startBtn = document.getElementById('start-experiment');
 
-    // Show popup on load
-    popup.style.display = 'flex';
+//     // Show popup on load
+//     popup.style.display = 'flex';
 
-    // Close popup
-    closeBtn.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
+//     // Close popup
+//     closeBtn.addEventListener('click', () => {
+//         popup.style.display = 'none';
+//     });
 
-    startBtn.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
-});
+//     startBtn.addEventListener('click', () => {
+//         popup.style.display = 'none';
+//     });
+// });

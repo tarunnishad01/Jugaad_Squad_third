@@ -17,36 +17,22 @@
 		<p>Interactively explore system responses and test linearity of a system.</p>
 	</header>
 	<main>
-		<div id="intro-popup" class="popup-overlay">
-			<div class="popup-content">
-				<span id="popup-close">&times;</span>
-				<h2>Welcome to the Linearity Test!</h2>
-				<p>Welcome to the interactive Simulink experiment on testing linearity and non-linearity of systems.
-					In this lab, you will use Simulink blocks to simulate different systems and determine whether they
-					are linear or non-linear.
-
-					First, choose a system block. You can select a Gain or Integrator block for a linear system, or try
-					using a Saturation or Relay block to simulate non-linear behavior.
-
-					Next, choose your input signal. You may use a Step input, Sine wave, or Ramp signal.
-
-					Now, run the simulation and observe the output waveform using the Scope block.
-
-					Perform the additivity test by applying two input signals and check if the output equals the sum of
-					the outputs of individual signals.
-
-					Then, perform the homogeneity test by scaling the input and observing if the output is
-					proportionally scaled.
-
-					If both tests are satisfied, the system is linear. If not, the system is non-linear.
-
-					This experiment is fundamental for understanding system behavior in control and signal processing.
-				</p>
-				<button id="start-experiment">Start Experiment</button>
-			</div>
-		</div>
-
 		<div class="container">
+			<section>
+				<h2>Experiment Control</h2>
+				<div class="download flex">
+					<button id="btn-run-test">Run Linearity Test</button>
+					<button id="btn-reset">Reset</button>
+					<button id="downloadBtn">Download Graph</button>
+					<button id="UndoBtn">Undo</button>
+				</div>
+				<div class="Massage">
+					<h2>Massage</h2>
+				</div>
+
+
+			</section>
+
 			<div class="container-X">
 				<section>
 					<h2>Input Signal Parameters</h2>
@@ -56,14 +42,14 @@
 					</div>
 					<div class="control-group">
 						<label for="input-frequency">Frequency (Hz):</label>
-						<input type="number" id="input-frequency" value="1" step="0.1" min="0.1" />
+						<input type="number" id="input-frequency" value="1" step="10" min="1" />
 					</div>
-					<div class="control-group">
+					<div style="display: flex; flex-direction: column;" class="control-group ">
 						<label for="input-phase">Phase (degrees): <span id="phase-value">0</span>°</label>
+
 						<input type="range" id="input-phase" value="0" step="1" min="0" max="360" />
 					</div>
 				</section>
-
 				<section>
 					<h2>System Parameters & Type</h2>
 					<div class="control-group">
@@ -87,15 +73,6 @@
 
 			</div>
 			<div class="container-Y">
-				<section>
-					<h2>Experiment Control</h2>
-
-					<div class="download flex"><button id="btn-run-test">Run Linearity Test</button>
-						<button id="btn-reset">Reset</button><button id="downloadBtn">Download Graph</button>
-					</div>
-
-
-				</section>
 				<section>
 					<h2>Output Plot</h2>
 					<div id="plot-container">
