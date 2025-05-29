@@ -17,67 +17,108 @@
 		<p>Interactively explore system responses and test linearity of a system.</p>
 	</header>
 	<main>
-		<section>
-			<h2>Input Signal Parameters</h2>
-			<div class="control-group">
-				<label for="input-amplitude">Amplitude (A):</label>
-				<input type="number" id="input-amplitude" value="1" step="0.1" min="0" />
-			</div>
-			<div class="control-group">
-				<label for="input-frequency">Frequency (Hz):</label>
-				<input type="number" id="input-frequency" value="1" step="0.1" min="0.1" />
-			</div>
-			<div class="control-group">
-				<label for="input-phase">Phase (degrees):</label>
-				<input type="number" id="input-phase" value="0" step="1" min="0" max="360" />
-			</div>
-		</section>
+		<div id="intro-popup" class="popup-overlay">
+			<div class="popup-content">
+				<span id="popup-close">&times;</span>
+				<h2>Welcome to the Linearity Test!</h2>
+				<p>Click play to hear the instructions before you begin.Or read it</p>
+				<p>Welcome to the interactive Simulink experiment on testing linearity and non-linearity of systems.
+					In this lab, you will use Simulink blocks to simulate different systems and determine whether they
+					are linear or non-linear.
 
-		<section>
-			<h2>System Parameters & Type</h2>
-			<div class="control-group">
-				<label for="sys-gain">Gain (k):</label>
-				<input type="number" id="sys-gain" value="1" step="0.1" />
-			</div>
-			<div class="control-group">
-				<label for="sys-offset">Offset (b):</label>
-				<input type="number" id="sys-offset" value="0" step="0.1" />
-			</div>
-			<div class="control-group">
-				<label for="non-linearity">Non-linearity:</label>
-				<select id="non-linearity">
-					<option value="linear" selected>Linear (y = kx + b)</option>
-					<option value="quadratic">Quadratic (y = kx² + b)</option>
-					<option value="saturation">Saturation (clip output)</option>
-					<option value="logarithmic">Logarithmic (y = k * log(x+1) + b)</option>
-				</select>
-			</div>
-		</section>
+					First, choose a system block. You can select a Gain or Integrator block for a linear system, or try
+					using a Saturation or Relay block to simulate non-linear behavior.
 
-		<section>
-			<h2>Experiment Control</h2>
-			<button id="btn-run-test">Run Linearity Test</button>
-			<button id="btn-reset">Reset</button>
-		</section>
+					Next, choose your input signal. You may use a Step input, Sine wave, or Ramp signal.
 
-		<section>
-			<h2>Output Plot</h2>
-			<div id="plot-container">
-				<canvas id="inputPlot"></canvas>
+					Now, run the simulation and observe the output waveform using the Scope block.
+
+					Perform the additivity test by applying two input signals and check if the output equals the sum of
+					the outputs of individual signals.
+
+					Then, perform the homogeneity test by scaling the input and observing if the output is
+					proportionally scaled.
+
+					If both tests are satisfied, the system is linear. If not, the system is non-linear.
+
+					This experiment is fundamental for understanding system behavior in control and signal processing.
+				</p>
+				<audio id="intro-audio" controls>
+					<source src="/experiment/simulation/images/ElevenLabs_Text_to_Speech_audio.mp3" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+				<button id="start-experiment">Start Experiment</button>
 			</div>
-			<div class="download"><button id="downloadBtn">Download Graph</button></div>
-			<h3>Result </h3>
-			<div id="result"> </div>
-			<canvas id="myChart" width="400" height="200"></canvas>
+		</div>
+
+		<div class="container">
+			<div class="container-X">
+				<section>
+					<h2>Input Signal Parameters</h2>
+					<div class="control-group">
+						<label for="input-amplitude">Amplitude (A):</label>
+						<input type="number" id="input-amplitude" value="1" step="0.1" min="0" />
+					</div>
+					<div class="control-group">
+						<label for="input-frequency">Frequency (Hz):</label>
+						<input type="number" id="input-frequency" value="1" step="0.1" min="0.1" />
+					</div>
+					<div class="control-group">
+						<label for="input-phase">Phase (degrees): <span id="phase-value">0</span>°</label>
+						<input type="range" id="input-phase" value="0" step="1" min="0" max="360" />
+					</div>
+				</section>
+
+				<section>
+					<h2>System Parameters & Type</h2>
+					<div class="control-group">
+						<label for="sys-gain">Gain (k):</label>
+						<input type="number" id="sys-gain" value="1" step="0.1" />
+					</div>
+					<div class="control-group">
+						<label for="sys-offset">Offset (b):</label>
+						<input type="number" id="sys-offset" value="0" step="0.1" />
+					</div>
+					<div class="control-group">
+						<label for="non-linearity">Non-linearity:</label>
+						<select id="non-linearity">
+							<option value="linear" selected>Linear (y = kx + b)</option>
+							<option value="quadratic">Quadratic (y = kx² + b)</option>
+							<option value="saturation">Saturation (clip output)</option>
+							<option value="logarithmic">Logarithmic (y = k * log(x+1) + b)</option>
+						</select>
+					</div>
+				</section>
+
+			</div>
+			<div class="container-Y">
+				<section>
+					<h2>Experiment Control</h2>
+
+					<div class="download flex"><button id="btn-run-test">Run Linearity Test</button>
+						<button id="btn-reset">Reset</button><button id="downloadBtn">Download Graph</button>
+					</div>
 
 
-		</section>
+				</section>
+				<section>
+					<h2>Output Plot</h2>
+					<div id="plot-container">
+						<canvas id="inputPlot"></canvas>
+					</div>
+					<h3>Result </h3>
+					<div id="result"> </div>
+					<canvas id="myChart" width="400" height="200"></canvas>
+				</section>
+			</div>
+		</div>
+
 	</main>
 	<footer>
-		&copy; 2025  made by Jugaad_Squad
+		&copy; 2025 made by Jugaad_Squad
 	</footer>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<!-- Add JS at the bottom of HTML file -->
 	<script src="./js/main.js"></script>
 

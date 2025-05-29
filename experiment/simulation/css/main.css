@@ -1,6 +1,13 @@
 /* You CSS goes in here */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -9,8 +16,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    gap: 10px;
 }
 
 header {
@@ -36,7 +49,6 @@ main {
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(70, 32, 102, 0.8);
     width: 100%;
-    max-width: 900px;
 }
 
 section {
@@ -85,10 +97,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #9f7fff;
-}
-
 #plot-container {
     position: relative;
     height: 350px;
@@ -110,7 +118,7 @@ footer {
     text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     label {
         flex-basis: 100%;
     }
@@ -119,14 +127,86 @@ footer {
         flex-direction: column;
     }
 }
-.download{
+
+.download {
     align-items: center;
     justify-content: center;
     display: flex;
-}
-#downloadBtn{
     border-radius: 50px;
+    margin-top: 2px;
 }
-.download :hover{
-    background-color: #0345d3;
+
+.download :hover {
+    background-color: #0aee43;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.container-X,
+.container-Y {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-X {
+    flex: 1;
+    max-width: 30%;
+}
+
+.container-Y {
+    flex: 2;
+    max-width: 70%;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #1e2a78;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 20px #000;
+}
+
+#popup-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#start-experiment {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #7f5af0;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
 }

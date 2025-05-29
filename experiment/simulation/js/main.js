@@ -24,6 +24,12 @@ function generateInputSignal(A, f, phaseDeg) {
     return inputSignal;
 }
 
+const slider = document.getElementById('input-phase');
+const display = document.getElementById('phase-value');
+
+slider.addEventListener('input', () => {
+    display.textContent = slider.value;
+});
 // Apply system with parameters and non-linearity
 function applySystem(x, k, b, type) {
     let y = [];
@@ -274,9 +280,27 @@ document.getElementById('btn-reset').addEventListener('click', reset);
 reset();
 // Download Button Functionality for the main chart
 document.getElementById('downloadBtn').addEventListener('click', function () {
-  const canvas = document.getElementById('inputPlot');
-  const link = document.createElement('a');
-  link.download = 'system-response-graph.png';
-  link.href = canvas.toDataURL('image/png');
-  link.click();
+    const canvas = document.getElementById('inputPlot');
+    const link = document.createElement('a');
+    link.download = 'system-response-graph.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+});
+
+window.addEventListener('load', function () {
+    const popup = document.getElementById('intro-popup');
+    const closeBtn = document.getElementById('popup-close');
+    const startBtn = document.getElementById('start-experiment');
+
+    // Show popup on load
+    popup.style.display = 'flex';
+
+    // Close popup
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    startBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
 });
