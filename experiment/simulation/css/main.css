@@ -170,5 +170,6 @@ footer {
     background-color: #c4c2c2;
     color: #030005;
     padding: auto;
+    min-height: 100px;
 
 }
