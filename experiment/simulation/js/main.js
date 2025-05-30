@@ -1,4 +1,4 @@
-//Your JavaScript goes in here
+// Your JavaScript goes in here
 
 // Setup variables
 const ctx = document.getElementById('inputPlot').getContext('2d');
@@ -30,6 +30,7 @@ const display = document.getElementById('phase-value');
 slider.addEventListener('input', () => {
     display.textContent = slider.value;
 });
+
 // Apply system with parameters and non-linearity
 function applySystem(x, k, b, type) {
     let y = [];
@@ -54,7 +55,6 @@ function applySystem(x, k, b, type) {
             break;
         case 'logarithmic':
             for (let val of x) {
-                // shift input to positive for log
                 let shifted = val + 2; // ensure val+2 > 0
                 y.push(k * Math.log(shifted) + b);
             }
@@ -69,40 +69,21 @@ function applySystem(x, k, b, type) {
 
 // Calculate linearity test: check additivity and homogeneity
 function linearityTest(x1, x2, k, b, type) {
-    // y(x1), y(x2)
     let y1 = applySystem(x1, k, b, type);
     let y2 = applySystem(x2, k, b, type);
 
-    // sum inputs and output of sum
-    let xSum = [];
-    for (let i = 0; i < x1.length; i++) {
-        xSum.push(x1[i] + x2[i]);
-    }
+    let xSum = x1.map((val, i) => val + x2[i]);
     let ySum = applySystem(xSum, k, b, type);
 
-    // check if y(x1+x2) ≈ y(x1)+y(x2)
     let threshold = 0.05; // tolerance level
-    let additive = true;
-    for (let i = 0; i < ySum.length; i++) {
-        if (Math.abs(ySum[i] - (y1[i] + y2[i])) > threshold) {
-            additive = false;
-            break;
-        }
-    }
+    let additive = ySum.every((val, i) => Math.abs(val - (y1[i] + y2[i])) <= threshold);
 
-    // homogeneity test: alpha * x1 input vs alpha * y(x1)
     let alpha = 2;
     let xScaled = x1.map(v => alpha * v);
     let yScaledInput = applySystem(xScaled, k, b, type);
     let yScaledOutput = y1.map(v => alpha * v);
 
-    let homogeneous = true;
-    for (let i = 0; i < yScaledInput.length; i++) {
-        if (Math.abs(yScaledInput[i] - yScaledOutput[i]) > threshold) {
-            homogeneous = false;
-            break;
-        }
-    }
+    let homogeneous = yScaledInput.every((val, i) => Math.abs(val - yScaledOutput[i]) <= threshold);
 
     return { additive, homogeneous };
 }
@@ -217,27 +198,16 @@ function runTest() {
 
     const type = document.getElementById('non-linearity').value;
 
-    // Input signals x1 and x2 for additivity test
-    // We will choose x1 = A*sin(2*pi*f*t + phase)
-    // and x2 = 0.5 * x1 (scaled version)
     let x1 = generateInputSignal(A, f, phase);
     let x2 = x1.map(v => v * 0.5);
 
-    // Outputs for visualization
     let y1 = applySystem(x1, k, b, type);
     let y2 = applySystem(x2, k, b, type);
-    let ySum = [];
-    for (let i = 0; i < y1.length; i++) {
-        ySum.push(y1[i] + y2[i]);
-    }
+    let ySum = y1.map((val, i) => val + y2[i]);
 
-    let xSum = [];
-    for (let i = 0; i < x1.length; i++) {
-        xSum.push(x1[i] + x2[i]);
-    }
+    let xSum = x1.map((val, i) => val + x2[i]);
     let ySumInput = applySystem(xSum, k, b, type);
 
-    // Update chart datasets: show x1 (input), y1(output), ySum(output sums), ySumInput(output of summed input)
     chart.data.datasets[0].data = x1;
     chart.data.datasets[1].data = y1;
     chart.data.datasets[2].data = ySum;
@@ -257,6 +227,9 @@ function runTest() {
         resultDiv.textContent = "System is NON-LINEAR: fails " + failText.join(" and ") + " test(s).";
         resultDiv.style.color = '#ff8a8a';
     }
+
+    // Update dynamic message
+    updateMessage();
 }
 
 // Reset function
@@ -267,18 +240,15 @@ function reset() {
     document.getElementById('sys-gain').value = 1;
     document.getElementById('sys-offset').value = 0;
     document.getElementById('non-linearity').value = 'linear';
+    document.getElementById('dynamic-message').innerHTML = '';
     document.getElementById('result').textContent = '';
     chart.data.datasets.forEach(ds => ds.data = []);
     chart.update();
 }
 
+// Event listeners
 document.getElementById('btn-run-test').addEventListener('click', runTest);
 document.getElementById('btn-reset').addEventListener('click', reset);
-
-
-// Initialize empty plot
-reset();
-// Download Button Functionality for the main chart
 document.getElementById('downloadBtn').addEventListener('click', function () {
     const canvas = document.getElementById('inputPlot');
     const link = document.createElement('a');
@@ -287,20 +257,19 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
     link.click();
 });
 
-// window.addEventListener('load', function () {
-//     const popup = document.getElementById('intro-popup');
-//     const closeBtn = document.getElementById('popup-close');
-//     const startBtn = document.getElementById('start-experiment');
+// Function to update the message
+function updateMessage() {
+    const gain = document.getElementById('sys-gain').value;
+    const amplitude = document.getElementById('input-amplitude').value;
+    const frequency = document.getElementById('input-frequency').value;
+    const phase = document.getElementById('input-phase').value;
 
-//     // Show popup on load
-//     popup.style.display = 'flex';
+    document.getElementById('dynamic-message').innerHTML =
+        `Selected values <br> Gain: ${gain} <br> Amplitude: ${amplitude} <br> Frequency: ${frequency}<br>
+        Phase: ${phase}° <hr>
+        <i>Your experiment was successfully run, and you have access to download the corresponding graph. This typically means the data from your experiment has been processed and visualized, allowing you to analyze the results.;</i>
+        `;
+}
 
-//     // Close popup
-//     closeBtn.addEventListener('click', () => {
-//         popup.style.display = 'none';
-//     });
-
-//     startBtn.addEventListener('click', () => {
-//         popup.style.display = 'none';
-//     });
-// });
+// Initialize empty plot
+reset();

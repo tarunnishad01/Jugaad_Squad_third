@@ -21,14 +21,15 @@
 			<section>
 				<h2>Experiment Control</h2>
 				<div class="download flex">
-					<button id="btn-run-test">Run Linearity Test</button>
+					<button id="btn-run-test" value="QPSK Simulation" onclick="runMessage()">Run Linearity Test</button>
 					<button id="btn-reset">Reset</button>
 					<button id="downloadBtn">Download Graph</button>
-					<button id="UndoBtn">Undo</button>
 				</div>
 				<div class="Massage">
 					<h2>Massage</h2>
+					<p id="dynamic-message"></p>
 				</div>
+
 
 
 			</section>
@@ -44,9 +45,8 @@
 						<label for="input-frequency">Frequency (Hz):</label>
 						<input type="number" id="input-frequency" value="1" step="10" min="1" />
 					</div>
-					<div style="display: flex; flex-direction: column;" class="control-group ">
+					<div  class="">
 						<label for="input-phase">Phase (degrees): <span id="phase-value">0</span>°</label>
-
 						<input type="range" id="input-phase" value="0" step="1" min="0" max="360" />
 					</div>
 				</section>
@@ -80,7 +80,7 @@
 					</div>
 					<h3>Result </h3>
 					<div id="result"> </div>
-					<canvas id="myChart" width="400" height="200"></canvas>
+					<canvas id="myChart" width="auto" height="auto"></canvas>
 				</section>
 			</div>
 		</div>
