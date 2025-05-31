@@ -4,7 +4,7 @@
 <b>Discipline | <b> Electronics and communication engineering 
 :--|:--|
 <b> Lab | <b> Digital System Desigh
-<b> Experiment|     <b>	Detailed analog/digital modulation experiments like advanced QPSK, M-ary PSK with BER
+<b> Experiment|     <b>	Full interactive Simulink experiments (e.g., linearity/non-linearity test)
 
 ### About the Experiment 
 
