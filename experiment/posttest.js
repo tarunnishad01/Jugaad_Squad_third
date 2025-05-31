@@ -87,59 +87,63 @@
 
 /////////////// Write the MCQ below in the exactly same described format ///////////////
 
-
-  const myQuestions = [
-    {
-      question: "On increasing the radius of the steel ball to double its value the terminal velocity of the ball become box:",  ///// Write the question inside double quotes
-      answers: {
-        a: " double",                  ///// Write the option 1 inside double quotes
-        b: "four times",                  ///// Write the option 2 inside double quotes
-        c: "eight times",                  ///// Write the option 3 inside double quotes
-        d: "sixteen times"                   ///// Write the option 4 inside double quotes
-      },
-      correctAnswer: "b"                ///// Write the correct option inside double quotes
+const myQuestions = [
+  {
+    question: "1.In Simulink, a linear system is one where:",  ///// Write the question inside double quotes
+    answers: {
+      a: "Output is not related to input",                  ///// Write the option 1 inside double quotes
+      b: "Output increases with square of input",                  ///// Write the option 2 inside double quotes
+      c: "Output changes proportionally with input",                  ///// Write the option 3 inside double quotes
+      d: "Input is constant"                   ///// Write the option 4 inside double quotes
     },
+    correctAnswer: "c"                ///// Write the correct option inside double quotes
+  },
 
-    {
-      question: " On increasing density of material of the falling ball its terminal velocity:",  ///// Write the question inside double quotes
-      answers: {
-        a: "Increases",                  ///// Write the option 1 inside double quotes
-        b: "decreases",                  ///// Write the option 2 inside double quotes
-        c: "remains constant",                  ///// Write the option 3 inside double quotes
-        d: "NOT"                   ///// Write the option 4 inside double quotes
-      },
-      correctAnswer: "a"                ///// Write the correct option inside double quotes
-    },                                  ///// To add more questions, copy the section below 
-    									                  ///// this line
-
-
-    /* To add more MCQ's, copy the below section, starting from open curly braces ( { )
-        till closing curly braces comma ( }, )
-
-        and paste it below the curly braces comma ( below correct answer }, ) of above 
-        question
-
-    Copy below section
-
-    {
-      question: "This is question n?",
-      answers: {
-        a: "Option 1",
-        b: "Option 2",
-        c: "Option 3",
-        d: "Option 4"
-      },
-      correctAnswer: "c"
+  {
+    question: "2.Which Simulink block is commonly used to observe system output?",  ///// Write the question inside double quotes
+    answers: {
+      a: "Gain",                  
+      b: "Scope",                  
+      c: "Sum",                  
+      d: "Product"                   
     },
+    correctAnswer: "b"                
+  },
 
-    Copy above section
+  {
+    question: "3.What does a linearity test primarily analyze?",  
+    answers: {
+      a: "Time delay between input and output",                  
+      b: "Power consumption",                  
+      c: "Input-output proportionality",                  
+      d: "System frequency response"                   
+    },
+    correctAnswer: "c"                
+  },
 
-    */
+  {
+    question: "4.Which signal type is best suited for analyzing system linearity?",  
+    answers: {
+      a: "Sine wave",                  
+      b: "Pulse generator",                  
+      c: "Random number",                  
+      d: "Clock"                   
+    },
+    correctAnswer: "a"                
+  },
 
+  {
+    question: "5.If output does not scale directly with input, the system is:",  
+    answers: {
+      a: "Linear",                  
+      b: "Stable",                  
+      c: "Non-linear",                  
+      d: "Ideal"                   
+    },
+    correctAnswer: "c"                
+  }
+];
 
-
-
-  ];
 
 
 

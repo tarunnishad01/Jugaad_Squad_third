@@ -2,86 +2,86 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "What is the main benefit of using QPSK over BPSK in digital communication?",
+      "question": "What defines a linear system in Simulink simulations?",
       "answers": {
-        "a": "It reduces bandwidth",
-        "b": "It increases power consumption",
-        "c": "It allows higher data rate",
-        "d": "It uses fewer components"
+        "a": "Output grows quadratically with input",
+        "b": "Output is independent of input",
+        "c": "Output is directly proportional to input",
+        "d": "Input and output are always constant"
       },
       "explanations": {
-        "a": "Incorrect. QPSK does not reduce bandwidth compared to BPSK.",
-        "b": "Incorrect. QPSK does not necessarily increase power consumption.",
-        "c": "Correct! QPSK allows transmission of 2 bits per symbol, effectively doubling the data rate. <a href='https://en.wikipedia.org/wiki/Quadrature_phase-shift_keying'>More info</a>",
-        "d": "Incorrect. The number of components is generally the same."
+        "a": "Incorrect. Quadratic growth is a sign of non-linearity.",
+        "b": "Incorrect. A system where output is independent of input is not useful.",
+        "c": "Correct! In linear systems, output scales linearly with input. <a href='https://en.wikipedia.org/wiki/Linearity'>Learn more</a>",
+        "d": "Incorrect. Linearity does not mean constant values."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "What happens to BER as the modulation order (M) increases in M-ary PSK?",
+      "question": "Which Simulink block is commonly used to visualize signals over time?",
       "answers": {
-        "a": "BER remains constant",
-        "b": "BER decreases",
-        "c": "BER increases",
-        "d": "BER is not affected"
+        "a": "Gain",
+        "b": "Integrator",
+        "c": "Scope",
+        "d": "Mux"
       },
       "explanations": {
-        "a": "Incorrect. BER does not stay the same with increased modulation order.",
-        "b": "Incorrect. BER usually increases with higher M due to reduced phase separation.",
-        "c": "Correct! As M increases, symbols are closer, making them more prone to errors. <a href='https://en.wikipedia.org/wiki/M-ary_transmission'>More info</a>",
-        "d": "Incorrect. BER is affected by modulation complexity."
+        "a": "Incorrect. Gain is used for multiplying signals.",
+        "b": "Incorrect. Integrator is for mathematical integration.",
+        "c": "Correct! The Scope block allows visualization of signal waveforms. <a href='https://www.mathworks.com/help/simulink/slref/scope.html'>More here</a>",
+        "d": "Incorrect. Mux is for combining signals, not displaying them."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "Which of the following is true about Bit Error Rate (BER)?",
+      "question": "What is a key feature of a non-linear system?",
       "answers": {
-        "a": "It is measured in volts",
-        "b": "It represents the ratio of incorrect bits to total bits sent",
-        "c": "It increases with higher SNR",
-        "d": "It is only relevant in analog modulation"
+        "a": "Superposition holds true",
+        "b": "The system output is directly proportional to input",
+        "c": "Output response varies non-proportionally to input",
+        "d": "It always produces a sinusoidal output"
       },
       "explanations": {
-        "a": "Incorrect. BER is a ratio, not a voltage.",
-        "b": "Correct! BER is the number of incorrect bits divided by the total number of transmitted bits. <a href='https://en.wikipedia.org/wiki/Bit_error_rate'>Read more</a>",
-        "c": "Incorrect. Higher SNR usually reduces BER.",
-        "d": "Incorrect. BER is a key metric in digital communication."
-      },
-      "correctAnswer": "b",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "Why is Gray coding used in digital modulation schemes like QPSK or 8-PSK?",
-      "answers": {
-        "a": "To save energy",
-        "b": "To reduce frequency usage",
-        "c": "To minimize bit errors due to symbol errors",
-        "d": "To increase data compression"
-      },
-      "explanations": {
-        "a": "Incorrect. Gray coding does not primarily save energy.",
-        "b": "Incorrect. It doesn’t reduce frequency usage.",
-        "c": "Correct! Gray coding ensures only one bit changes between adjacent symbols, reducing bit error probability. <a href='https://en.wikipedia.org/wiki/Gray_code'>Learn more</a>",
-        "d": "Incorrect. Gray coding is not related to compression."
+        "a": "Incorrect. Superposition is only valid for linear systems.",
+        "b": "Incorrect. This is true for linear, not non-linear systems.",
+        "c": "Correct! In non-linear systems, input-output relationship is not proportional. <a href='https://en.wikipedia.org/wiki/Nonlinear_system'>More info</a>",
+        "d": "Incorrect. Non-linear systems can produce distorted or unexpected outputs."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "What is a key characteristic of QPSK modulation?",
+      "question": "Which input signal is best to test system linearity in Simulink?",
       "answers": {
-        "a": "It transmits one bit per symbol",
-        "b": "It uses amplitude variation only",
-        "c": "It represents data using four phase shifts",
-        "d": "It cannot be used for wireless communication"
+        "a": "Random noise",
+        "b": "Step function",
+        "c": "Sine wave",
+        "d": "Pulse generator"
       },
       "explanations": {
-        "a": "Incorrect. QPSK transmits two bits per symbol.",
-        "b": "Incorrect. QPSK uses phase variation, not amplitude.",
-        "c": "Correct! QPSK uses four phase states to encode two bits per symbol. <a href='https://en.wikipedia.org/wiki/Quadrature_phase-shift_keying'>More here</a>",
-        "d": "Incorrect. QPSK is commonly used in wireless systems."
+        "a": "Incorrect. Noise does not clearly indicate linearity.",
+        "b": "Incorrect. Step function tests response time, not linearity.",
+        "c": "Correct! A sine wave helps analyze proportional output response in linearity tests. <a href='https://en.wikipedia.org/wiki/Sine_wave'>More here</a>",
+        "d": "Incorrect. Pulse is used for digital system timing, not linearity."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What indicates that a system is non-linear in a Simulink experiment?",
+      "answers": {
+        "a": "Output waveform is identical to input",
+        "b": "Output amplitude increases linearly with input",
+        "c": "Output does not scale proportionally with input",
+        "d": "Input is constant but output varies linearly"
+      },
+      "explanations": {
+        "a": "Incorrect. This indicates linearity or a system with no change.",
+        "b": "Incorrect. This describes linear behavior.",
+        "c": "Correct! Non-linearity is shown when input changes result in disproportionate output. <a href='https://www.mathworks.com/help/simulink/'>More on Simulink</a>",
+        "d": "Incorrect. A constant input typically doesn't lead to variation unless the system has feedback."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
