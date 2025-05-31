@@ -3,7 +3,7 @@
 
 <b>Discipline | <b> Electronics and communication engineering 
 :--|:--|
-<b> Lab | <b> Digital System Desigh
+<b> Lab | <b> Digital System Design
 <b> Experiment|     <b>	Full interactive Simulink experiments (e.g., linearity/non-linearity test)
 
 ### About the Experiment 
