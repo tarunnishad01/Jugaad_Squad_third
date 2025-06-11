@@ -72,7 +72,6 @@
   const quizContainer = document.getElementById("quiz");
   const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
- 
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -80,74 +79,64 @@
 
 /////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
 /////////////// Write the MCQ below in the exactly same described format ///////////////
 
-
   const myQuestions = [
-  {
-    question: "1. In Simulink, the linearity test is performed to determine:", 
-    answers: {
-      a: "The stability of the system",
-      b: "The input-output relationship of the system",
-      c: "The speed of the system",
-      d: "None of the above"
+    {
+      question: "1. In Simulink, the linearity test is performed to determine:",
+      answers: {
+        a: "The stability of the system",
+        b: "The input-output relationship of the system",
+        c: "The speed of the system",
+        d: "None of the above"
+      },
+      correctAnswer: "b"
     },
-    correctAnswer: "b"
-  },
 
-  {
-    question: "2. If the output does not increase proportionally with the input, the system is called:", 
-    answers: {
-      a: "Linear",
-      b: "Non-linear",
-      c: "Stable",
-      d: "None of the above"
+    {
+      question: "2. If the output does not increase proportionally with the input, the system is called:",
+      answers: {
+        a: "Linear",
+        b: "Non-linear",
+        c: "Stable",
+        d: "None of the above"
+      },
+      correctAnswer: "b"
     },
-    correctAnswer: "b"
-  },
 
-  {
-    question: "3. What is the purpose of the 'Scope' block in Simulink?", 
-    answers: {
-      a: "To generate input signals",
-      b: "To perform calculations",
-      c: "To view output signals",
-      d: "To save data"
+    {
+      question: "3. What is the purpose of the 'Scope' block in Simulink?",
+      answers: {
+        a: "To generate input signals",
+        b: "To perform calculations",
+        c: "To view output signals",
+        d: "To save data"
+      },
+      correctAnswer: "c"
     },
-    correctAnswer: "c"
-  },
 
-  {
-    question: "4. Which types of input signals are suitable for linearity testing in Simulink?", 
-    answers: {
-      a: "Sine wave",
-      b: "Step signal",
-      c: "Ramp signal",
-      d: "All of the above"
+    {
+      question: "4. Which types of input signals are suitable for linearity testing in Simulink?",
+      answers: {
+        a: "Sine wave",
+        b: "Step signal",
+        c: "Ramp signal",
+        d: "All of the above"
+      },
+      correctAnswer: "d"
     },
-    correctAnswer: "d"
-  },
 
-  {
-    question: "5. What is a characteristic of a non-linear system in Simulink modeling?", 
-    answers: {
-      a: "Superposition principle holds",
-      b: "Output changes proportionally with input",
-      c: "Output has a complex relationship with input",
-      d: "All options are correct"
-    },
-    correctAnswer: "c"
-  }
-];
-
-
-
-
+    {
+      question: "5. What is a characteristic of a non-linear system in Simulink modeling?",
+      answers: {
+        a: "Superposition principle holds",
+        b: "Output changes proportionally with input",
+        c: "Output has a complex relationship with input",
+        d: "All options are correct"
+      },
+      correctAnswer: "c"
+    }
+  ];
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -155,14 +144,12 @@
 
 /////////////////////////////////////////////////////////////////////////////
 
-
   // display quiz right away
   buildQuiz();
 
   // on submit, show results
   submitButton.addEventListener("click", showResults);
 })();
-
 
 /////////////////////////////////////////////////////////////////////////////
 
