@@ -72,7 +72,6 @@
   const quizContainer = document.getElementById("quiz");
   const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
- 
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -80,73 +79,60 @@
 
 /////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
 /////////////// Write the MCQ below in the exactly same described format ///////////////
 
-const myQuestions = [
-  {
-    question: "1.In Simulink, a linear system is one where:",  ///// Write the question inside double quotes
-    answers: {
-      a: "Output is not related to input",                  ///// Write the option 1 inside double quotes
-      b: "Output increases with square of input",                  ///// Write the option 2 inside double quotes
-      c: "Output changes proportionally with input",                  ///// Write the option 3 inside double quotes
-      d: "Input is constant"                   ///// Write the option 4 inside double quotes
+  const myQuestions = [
+    {
+      question: "1.In Simulink, a linear system is one where:",
+      answers: {
+        a: "Output is not related to input",
+        b: "Output increases with square of input",
+        c: "Output changes proportionally with input",
+        d: "Input is constant"
+      },
+      correctAnswer: "c"
     },
-    correctAnswer: "c"                ///// Write the correct option inside double quotes
-  },
-
-  {
-    question: "2.Which Simulink block is commonly used to observe system output?",  ///// Write the question inside double quotes
-    answers: {
-      a: "Gain",                  
-      b: "Scope",                  
-      c: "Sum",                  
-      d: "Product"                   
+    {
+      question: "2.Which Simulink block is commonly used to observe system output?",
+      answers: {
+        a: "Gain",
+        b: "Scope",
+        c: "Sum",
+        d: "Product"
+      },
+      correctAnswer: "b"
     },
-    correctAnswer: "b"                
-  },
-
-  {
-    question: "3.What does a linearity test primarily analyze?",  
-    answers: {
-      a: "Time delay between input and output",                  
-      b: "Power consumption",                  
-      c: "Input-output proportionality",                  
-      d: "System frequency response"                   
+    {
+      question: "3.What does a linearity test primarily analyze?",
+      answers: {
+        a: "Time delay between input and output",
+        b: "Power consumption",
+        c: "Input-output proportionality",
+        d: "System frequency response"
+      },
+      correctAnswer: "c"
     },
-    correctAnswer: "c"                
-  },
-
-  {
-    question: "4.Which signal type is best suited for analyzing system linearity?",  
-    answers: {
-      a: "Sine wave",                  
-      b: "Pulse generator",                  
-      c: "Random number",                  
-      d: "Clock"                   
+    {
+      question: "4.Which signal type is best suited for analyzing system linearity?",
+      answers: {
+        a: "Sine wave",
+        b: "Pulse generator",
+        c: "Random number",
+        d: "Clock"
+      },
+      correctAnswer: "a"
     },
-    correctAnswer: "a"                
-  },
-
-  {
-    question: "5.If output does not scale directly with input, the system is:",  
-    answers: {
-      a: "Linear",                  
-      b: "Stable",                  
-      c: "Non-linear",                  
-      d: "Ideal"                   
-    },
-    correctAnswer: "c"                
-  }
-];
-
-
-
-
+    {
+      question: "5.If output does not scale directly with input, the system is:",
+      answers: {
+        a: "Linear",
+        b: "Stable",
+        c: "Non-linear",
+        d: "Ideal"
+      },
+      correctAnswer: "c"
+    }
+  ];
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -154,14 +140,12 @@ const myQuestions = [
 
 /////////////////////////////////////////////////////////////////////////////
 
-
   // display quiz right away
   buildQuiz();
 
   // on submit, show results
   submitButton.addEventListener("click", showResults);
 })();
-
 
 /////////////////////////////////////////////////////////////////////////////
 
