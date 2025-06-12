@@ -1,4 +1,3 @@
-### Link your references in:
 * MathWorks Simulink Documentation:
   https://www.mathworks.com/help/simulink/
 – Official documentation for block explanations and simulation tutorials.
