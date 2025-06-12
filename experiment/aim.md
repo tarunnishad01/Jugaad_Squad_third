@@ -12,17 +12,7 @@ Objective Highlights:
 
 * To enhance conceptual understanding of system behavior using interactive simulations.
 
-Let me know if you also need:
 
-* Procedure
-
-* Block diagram
-
-* Observations table
-
-* Viva questions
-
-* Result format
 
 
 
