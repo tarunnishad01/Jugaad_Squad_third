@@ -1,4 +1,3 @@
-### Aim of the experiment
 To design and simulate systems in Simulink for analyzing the linearity and non-linearity of dynamic systems through visual and interactive simulations, and to understand how linear and non-linear behaviors affect system response.
 
 Objective Highlights:
